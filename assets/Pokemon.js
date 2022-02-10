@@ -3,12 +3,12 @@ class Pokemon
   constructor(name,number,type,hp,level,attack,defense,speed,special,description)
   {
     var img_bank = {
-      richard        : 'assets_v2/richard.png',
-      gabo       : 'assets_v2/gabo.png',
-      mau        : 'assets_v2/mau.png',
-      duko        : 'assets_v2/duko.png',
-      juan        : 'assets_v2/juan.png',
-      lili         : 'assets_v2/lili.png',
+      richard        : 'assets_v2/richard.gif',
+      gabo       : 'assets_v2/gabo.gif',
+      mau        : 'assets_v2/mau.gif',
+      duko        : 'assets_v2/duko.gif',
+      juan        : 'assets_v2/juan.gif',
+      lili         : 'assets_v2/lili.gif',
       butterfree    : 'assets/poke_butterfree.gif',
     }
     var sound_roars = {
