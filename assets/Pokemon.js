@@ -12,12 +12,12 @@ class Pokemon
       butterfree    : 'assets/poke_butterfree.gif',
     }
     var sound_roars = {
-      diglet      : new Audio('assets/sound_roar1.wav'),
+      richard      : new Audio('assets/sound_roar1.wav'),
       gabo     : new Audio('assets/sound_roar2.wav'),
       mau      : new Audio('assets/sound_roar3.wav'),
       duko      : new Audio('assets/sound_roar4.wav'),
       juan      : new Audio('assets/sound_roar5.wav'),
-      odish       : new Audio('assets/sound_roar6.wav'),
+      lili       : new Audio('assets/sound_roar6.wav'),
       butterfree  : new Audio('assets/sound_roar7.wav'),
     }
 
