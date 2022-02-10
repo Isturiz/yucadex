@@ -11,9 +11,9 @@ class Interface
       enter       : new Audio('assets/sound_enter.wav'),
     }
     
-    this.pokemons       = [];
+    this.yukamons       = [];
     this.currentScreen  = '';
-    this.currentPokemon = 0;
+    this.currentYukamon = 0;
 
     this.setupListeners();
     this.goToScreen(this.screens.list);
@@ -22,6 +22,15 @@ class Interface
   setupListeners()
   {
     window.addEventListener('keydown', e => this.onKeyDown(e));
+  }
+
+  touch(e)
+  {
+    document.addEventListener("touchstart", onTouch());
+
+    var position = e;
+
+    //if position(position )
   }
 
   onKeyDown(e)
@@ -50,7 +59,7 @@ class Interface
     this.currentScreen = screenName;
 
     this.hideAllScreens();
-    if(this.currentScreen == this.screens.description) this.fillPokemonDescription();
+    if(this.currentScreen == this.screens.description) this.fillYukamonDescription();
     document.getElementById(screenName).classList.remove('hide');
   }
 
@@ -65,8 +74,8 @@ class Interface
 
   moveArrowInList(direction)
   {
-    this.currentPokemon += direction;
-    this.currentPokemon = Math.max(0,Math.min(this.currentPokemon,this.pokemons.length-1));
+    this.currentYukamon += direction;
+    this.currentYukamon = Math.max(0,Math.min(this.currentYukamon,this.yukamons.length-1));
 
     var arrows = document.getElementsByClassName('img_arrow');
     for(var arrow of arrows)
@@ -74,36 +83,36 @@ class Interface
       arrow.classList.add('hide');
     }
 
-    var id        = this.currentPokemon;
+    var id        = this.currentYukamon;
     var currArrow = document.getElementById('arrow'+id);
     currArrow.classList.remove('hide');
   }
 
-  fillPokemonDescription()
+  fillYukamonDescription()
   {
-    var id      = this.currentPokemon;
-    var pokemon = this.pokemons[id];
+    var id      = this.currentYukamon;
+    var yukamon = this.yukamons[id];
 
-    pokemon.roar();
+    yukamon.roar();
 
-    document.getElementById('desc_img').setAttribute('src',pokemon.img_url);
-    document.getElementById('desc_name').innerHTML        = pokemon.name;
-    document.getElementById('desc_name').innerHTML        = pokemon.name;
-    document.getElementById('desc_level').innerHTML       = pokemon.level;
-    document.getElementById('desc_hp1').innerHTML         = pokemon.hp;
-    document.getElementById('desc_hp2').innerHTML         = pokemon.hp;
-    document.getElementById('desc_number').innerHTML      = pokemon.number;
-    document.getElementById('desc_type').innerHTML        = pokemon.type;
-    document.getElementById('desc_attack').innerHTML      = pokemon.attack;
-    document.getElementById('desc_defense').innerHTML     = pokemon.defense;
-    document.getElementById('desc_speed').innerHTML       = pokemon.speed;
-    document.getElementById('desc_special').innerHTML     = pokemon.special;
-    document.getElementById('desc_description').innerHTML = pokemon.description;
+    document.getElementById('desc_img').setAttribute('src',yukamon.img_url);
+    document.getElementById('desc_name').innerHTML        = yukamon.name;
+    document.getElementById('desc_name').innerHTML        = yukamon.name;
+    document.getElementById('desc_level').innerHTML       = yukamon.level;
+    document.getElementById('desc_hp1').innerHTML         = yukamon.hp;
+    document.getElementById('desc_hp2').innerHTML         = yukamon.hp;
+    document.getElementById('desc_number').innerHTML      = yukamon.number;
+    document.getElementById('desc_type').innerHTML        = yukamon.type;
+    document.getElementById('desc_attack').innerHTML      = yukamon.attack;
+    document.getElementById('desc_defense').innerHTML     = yukamon.defense;
+    document.getElementById('desc_speed').innerHTML       = yukamon.speed;
+    document.getElementById('desc_special').innerHTML     = yukamon.special;
+    document.getElementById('desc_description').innerHTML = yukamon.description;
   }
 
-  addPokemonToTheList(pokemon)
+  addYukamonToTheList(yukamon)
   {
-    var id    = this.pokemons.length;
+    var id    = this.yukamons.length;
     var child = '\
     <table id="poke'+id+'" align="center">\
           <tr>\
@@ -111,22 +120,22 @@ class Interface
               <img src="assets/poke_asset_arrow.gif" id="arrow'+id+'" class="img_arrow margin_right" width="17">\
             </td>\
             <td width="80">\
-              <img src="'+pokemon.img_url+'" width="60">\
+              <img src="'+yukamon.img_url+'" width="60">\
             </td>\
             <td width="240">\
-              <h3 class="no_margin no_padding uppercase">'+pokemon.name+'</h3>\
+              <h3 class="no_margin no_padding uppercase">'+yukamon.name+'</h3>\
               <span class="text_small text_bold">HP:</span><img src="assets/poke_asset_lifebar.gif" alt="">\
             </td>\
             <td class="text_bold" width="120">\
-              L:'+pokemon.level+' <br>\
-              '+pokemon.hp+'/'+pokemon.hp+'\
+              L:'+yukamon.level+' <br>\
+              '+yukamon.hp+'/'+yukamon.hp+'\
             </td>\
           </tr>\
         </table>\
     ';
 
-    document.getElementById('pokemon_list_container').innerHTML += child;
-    this.pokemons.push(pokemon);
+    document.getElementById('yukamon_list_container').innerHTML += child;
+    this.yukamons.push(yukamon);
     this.moveArrowInList(-1);
   }
 }

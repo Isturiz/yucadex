@@ -1,4 +1,4 @@
-class Pokemon
+class Yukamon
 {
   constructor(name,number,type,hp,level,attack,defense,speed,special,description)
   {
@@ -9,13 +9,13 @@ class Pokemon
       duko        : 'assets_v2/duko.gif',
       juan        : 'assets_v2/juan.gif',
       lili         : 'assets_v2/lili.gif',
-      butterfree    : 'assets/poke_butterfree.gif',
+      //butterfree    : 'assets/poke_butterfree.gif',
     }
     var sound_roars = {
       richard      : new Audio('assets/sound_roar1.wav'),
-      gabo     : new Audio('assets/sound_roar2.wav'),
+      gabo     : new Audio('assets_v2/gabo.mp3'),
       mau      : new Audio('assets/sound_roar3.wav'),
-      duko      : new Audio('assets/sound_roar4.wav'),
+      duko      : new Audio('assets_v2/tos.mp3'),
       juan      : new Audio('assets/sound_roar5.wav'),
       lili       : new Audio('assets/sound_roar6.wav'),
       butterfree  : new Audio('assets/sound_roar7.wav'),
